@@ -1,0 +1,64 @@
+<div class="container" style="margin-top: 70px;">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let c of contacts">
+
+            <td>{{c.name}}</td>
+            <td>{{c.email}}</td>
+            <td>{{c.description}}</td>
+            <td>
+                <button class="btn btn-primary" (click)="selectContact(c)"> Mostrar detalhes</button>
+                <button class="btn btn-danger" style="margin: 1%;" (click)="deleteContact(c)"> Excluir</button>
+            </td>
+        </tr>
+        <tbody>
+        </tbody>
+    </table>
+
+    <div class="card text-center" *ngIf="selectedContact">
+
+        <div class="card-header">
+
+            <button *ngIf="!edicao" class="btn btn-primary" (click)="editar()"> Editar</button>
+            <button *ngIf="!edicao" class="btn btn-danger" style="margin: 1%;" onclick="location.href = document.referrer;">Cancelar</button>
+
+        </div>
+        <div class="card-block">
+            <h4 *ngIf="!edicao" class="card-title">{{selectedContact.name}}</h4>
+
+            <div *ngIf="edicao">
+                <label for="name">Nome do contato</label>
+                <input [(ngModel)]="selectedContact.name" type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Digite o nome">
+            </div>
+
+            <div *ngIf="edicao">
+                <label for="description">Descrição do contato </label>
+                <textarea [(ngModel)]="selectedContact.description" name="description" class="form-control" id="description" aria-describedby="descHelp"></textarea>
+            </div>
+
+            <div *ngIf="edicao">
+                <label for="email">Email do contato</label>
+                <input [(ngModel)]="selectedContact.email" type="text" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite o email">
+
+            </div>
+
+
+            <p *ngIf="!edicao" class="card-text">
+                E-mail: {{selectedContact.email}} <br> Descrição: {{selectedContact.description}}
+
+            </p>
+            <button *ngIf="edicao" class="btn btn-success" (click)="salvar()"> Salvar</button>
+            <button *ngIf="edicao" class="btn btn-danger" style="margin: 1%;" (click)="cancelar()"> Cancelar</button>
+
+        </div>
+
+    </div>
+
+</div>
