@@ -1,19 +1,45 @@
 <nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">Minha App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+    <div class="container">
+
+        <a class="navbar-brand mb-0 " href="#">Minha App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home">Início</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/contact-list">Contatos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/contact-create">Criar Contato</a>
-            </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact-list">Contatos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact-create">Criar Contato</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <div class="dropdown show">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Social
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="https://github.com/MiguellNeto" target="_blank">GitHub </a>
+                        <a class="dropdown-item" href="https://twitter.com/Miguelnet0o0" target="_blank">Twitter</a>
+                        <a class="dropdown-item" href="https://www.instagram.com/miguelgneto/" target="_blank">Instragram</a>
+                    </div>
+
+                </div>
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control ml-4 mr-2" placeholder="Busca..." aria-label="Search" />
+                </div>
+
+            </ul>
+
+
+
+
+        </div>
     </div>
 </nav>
