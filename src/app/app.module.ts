@@ -9,7 +9,9 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CpfPipe } from './pipes/cpf.pipe';
+import { AuthHttp } from './auth.http';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactListComponent,
     HeaderComponent,
     FooterComponent,
+    CpfPipe
     
   ],
   imports: [
@@ -28,7 +31,15 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
 
   ],
-  providers: [],
+  providers: [
+   
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthHttp,
+    multi: true
+  }
+
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

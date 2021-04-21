@@ -4,6 +4,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Email</th>
+                <th>CPF</th>
                 <th>Descrição</th>
                 <th>Ações</th>
             </tr>
@@ -12,6 +13,7 @@
 
             <td>{{c.name}}</td>
             <td>{{c.email}}</td>
+            <td>{{c.cpf | cpf}} </td>
             <td>{{c.description}}</td>
             <td>
                 <button class="btn btn-primary" (click)="selectContact(c)"> Mostrar detalhes</button>
@@ -32,7 +34,7 @@
         </div>
         <div class="card-block">
             <h4 *ngIf="!edicao" class="card-title">{{selectedContact.name}}</h4>
-
+            <h2 *ngIf="!edicao" class="card-title">{{selectedContact.cpf | cpf}}</h2>
             <div *ngIf="edicao">
                 <label for="name">Nome do contato</label>
                 <input [(ngModel)]="selectedContact.name" type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Digite o nome">
@@ -41,6 +43,11 @@
             <div *ngIf="edicao">
                 <label for="description">Descrição do contato </label>
                 <textarea [(ngModel)]="selectedContact.description" name="description" class="form-control" id="description" aria-describedby="descHelp"></textarea>
+            </div>
+
+            <div *ngIf="edicao">
+                <label for="cpf">CPF do contato </label>
+                <textarea [(ngModel)]="selectedContact.cpf" name="cpf" class="form-control" id="cpf" aria-describedby="descHelp"></textarea>
             </div>
 
             <div *ngIf="edicao">

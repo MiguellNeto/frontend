@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
 export class ContactListComponent implements OnInit {
 
 
-  contacts: { id: any; name: any; description: any; email: any; } []| undefined;
+  contacts: { id: any; name: any; cpf: any, description: any; email: any; } []| undefined;
   selectedContact: any
   edicao = false;
 
@@ -28,6 +28,7 @@ export class ContactListComponent implements OnInit {
 
   public selectContact(contact: any) {
     this.selectedContact = contact;
+    localStorage.setItem('armazenadoLocal', this.selectedContact.name);
   }
 
     public deleteContact(contact: { id: any; }) {
