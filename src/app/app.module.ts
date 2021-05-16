@@ -21,7 +21,7 @@ import { AuthHttp } from './auth.http';
     ContactListComponent,
     HeaderComponent,
     FooterComponent,
-    CpfPipe
+    CpfPipe,
     
   ],
   imports: [
